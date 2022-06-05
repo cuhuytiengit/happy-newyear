@@ -1,23 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+import {useState, useEffect} from 'react'
 
 function App() {
+
+  const [N_number, setNumber] = useState(60);
+  const [number2, setNumber2] = useState(60);
+
+
+  useEffect(()=>{
+   setInterval(()=>{
+      setNumber(preState => preState-1)
+    },10000)
+      
+  },[])
+
+  useEffect(()=>{
+    setInterval(()=>{
+       setNumber2(preState2 => preState2 - 1)
+     },1000)
+       
+   },[])
+
+  
   return (
+
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+        {N_number}
+        {number2}
+
+
+
+      
     </div>
   );
 }
